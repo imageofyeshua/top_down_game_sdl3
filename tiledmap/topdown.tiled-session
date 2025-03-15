@@ -1,0 +1,41 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "map.json",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "map.json": {
+            "scale": 0.9856250000000001,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 268.3576410906785,
+                "y": 266.3284717818643
+            }
+        },
+        "map.json#Overworld_Tileset": {
+            "scaleInDock": 1
+        },
+        "map.json#water_tile_anim_strip_8": {
+            "scaleInDock": 1
+        }
+    },
+    "last.imagePath": "/home/kainos/dev/top_down_game_sdl3/assets",
+    "map.lastUsedFormat": "json",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "openFiles": [
+        "map.json"
+    ],
+    "project": "topdown.tiled-project",
+    "recentFiles": [
+        "map.json"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
