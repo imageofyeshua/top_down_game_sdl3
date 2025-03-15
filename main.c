@@ -1,3 +1,4 @@
+#include <SDL3/SDL_timer.h>
 #define SDL_MAIN_USE_CALLBACKS
 #include "character.h"
 #include "player.h"
@@ -18,9 +19,9 @@
     characters[i].quit();                                                      \
   }
 
-#define UPDATE_CHARACTERS(characters, characters_count)                        \
+#define UPDATE_CHARACTERS(characters, characters_count, delta_time)            \
   for (int i = 0; i < characters_count; i++) {                                 \
-    characters[i].update();                                                    \
+    characters[i].update(delta_time);                                          \
   }
 
 #define RENDER_CHARACTERS(characters, characters_count, renderer)              \
@@ -34,6 +35,10 @@ SDL_Texture *player_texture;
 
 Character characters[MAX_CHARACTERS];
 int characters_count = 0;
+
+Uint64 last_tick = 0;
+Uint64 current_tick = 0;
+float delta_time;
 
 void SDL_AppQuit(void *appstate, SDL_AppResult result) {
   QUIT_CHARACTERS(characters, characters_count);
@@ -51,7 +56,13 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event) {
   return SDL_APP_CONTINUE;
 }
 
-void update() { UPDATE_CHARACTERS(characters, characters_count); }
+void update() {
+  last_tick = current_tick;
+  current_tick = SDL_GetTicks();
+  delta_time = (current_tick - last_tick) / 1000.0f;
+
+  UPDATE_CHARACTERS(characters, characters_count, delta_time);
+}
 
 void render() {
   SDL_RenderClear(renderer);
