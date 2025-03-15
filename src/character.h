@@ -2,13 +2,15 @@
 #define CHARACTER_H
 #define MAX_CHARACTERS 100
 #include <SDL3/SDL.h>
-#include <SDL3_image/SDL_image.h>
 
-typedef struct {
+typedef struct _Character {
   void (*quit)(void);
   void (*handle_events)(SDL_Event *);
   void (*update)(float);
   void (*render)(SDL_Renderer *);
 } Character;
 
-#endif // !ENTITY_H
+extern Character characters[MAX_CHARACTERS];
+extern int characters_count;
+
+#endif

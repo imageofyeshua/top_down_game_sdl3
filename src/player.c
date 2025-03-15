@@ -2,6 +2,7 @@
 #include <SDL3/SDL_events.h>
 #include <SDL3/SDL_keyboard.h>
 #include <SDL3/SDL_keycode.h>
+#include <SDL3_image/SDL_image.h>
 #include <stdio.h>
 
 static SDL_Texture *player_texture;
